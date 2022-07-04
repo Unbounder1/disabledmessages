@@ -2,7 +2,11 @@ import discord
 import re
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
+
+
 print ("your forbidden messages are " + str(open('forbiddenmessages', 'r').read().splitlines()))
+
+
 @client.event
 async def on_message(message):
     if message.author.bot: return
@@ -16,8 +20,10 @@ async def on_message(message):
             print (str(message.author) + " used " + str(i))
             return
         return
+    
+    
+    
+      
 with open('config', "r") as config:
-
     clientid = config.readlines()
-
 client.run(clientid[1])
